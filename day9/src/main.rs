@@ -61,7 +61,7 @@ fn part2(mut data: Heightmap) -> i64 {
     let mut basins: Vec<_> = data
         .indices()
         .filter_map(|idx| {
-            if data.map[idx] == 9 {
+            if !data.is_lowpoint(idx) || data.map[idx] == 9 {
                 None
             } else {
                 let mut flood = vec![idx];
