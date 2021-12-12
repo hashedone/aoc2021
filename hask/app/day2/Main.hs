@@ -20,7 +20,6 @@ apply :: (Int, Int, Int) -> (Int, Int) -> (Int, Int, Int)
 apply (x, y, aim) (dx, daim) = (x + dx, y + aim * dx, aim + daim)
 
 part2 :: [(Int, Int)] -> Int
---part2 = uncurry (*) . (fst &&& (fst . snd)) . foldl apply (0, 0, 0)
 part2 = uncurry (*) . (fst3 &&& snd3) . foldl apply (0, 0, 0)
 
 -- Parsing
