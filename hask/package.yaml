@@ -22,11 +22,22 @@ library:
 
 executables:
   day1:
-    main:                Day1.hs
-    source-dirs:         app
+    main:                Main.hs
+    source-dirs:         app/day1
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - aoc2021
+  day2:
+    main:                Main.hs
+    source-dirs:         app/day2
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aoc2021
+    - parsec >= 3.1 && < 4
+    - extra
