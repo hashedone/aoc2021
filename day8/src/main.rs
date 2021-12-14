@@ -127,7 +127,7 @@ fn part2(data: Vec<Input>) -> usize {
                     input
                         .diagnostics
                         .iter()
-                        .all(|entry| map_number(&mapping, *entry).is_some())
+                        .all(|entry| map_number(mapping, *entry).is_some())
                 })
                 .unwrap();
 

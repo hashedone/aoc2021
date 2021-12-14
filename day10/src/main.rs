@@ -66,14 +66,14 @@ fn process(data: &str) -> Result<Vec<char>, char> {
 
 fn part1(data: &[String]) -> i64 {
     data.iter()
-        .map(|s| score_error(process(&s).err().unwrap_or_default()))
+        .map(|s| score_error(process(s).err().unwrap_or_default()))
         .sum()
 }
 
 fn part2(data: &[String]) -> i64 {
     let mut scores: Vec<_> = data
         .iter()
-        .filter_map(|s| process(&s).ok())
+        .filter_map(|s| process(s).ok())
         .map(|stack| score_completion(&stack.into_iter().rev().map(closing).collect::<String>()))
         .collect();
     let idx = scores.len() / 2;

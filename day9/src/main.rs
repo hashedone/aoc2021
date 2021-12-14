@@ -79,7 +79,7 @@ fn part2(mut data: Heightmap) -> i64 {
         })
         .collect();
 
-    basins.sort();
+    basins.sort_unstable();
     basins.into_iter().rev().take(3).product()
 }
 

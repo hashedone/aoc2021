@@ -3,7 +3,7 @@ use std::io::{stdin, BufRead};
 fn input(data: impl BufRead) -> Vec<i64> {
     let line = data.lines().next().unwrap().unwrap();
     let mut data: Vec<_> = line.split(',').map(|n| n.parse::<i64>().unwrap()).collect();
-    data.sort();
+    data.sort_unstable();
     data
 }
 

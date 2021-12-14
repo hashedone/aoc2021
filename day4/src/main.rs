@@ -91,12 +91,11 @@ fn part1(data: &Input) -> Result<u64> {
 
             Some((*num, boards.clone()))
         })
-        .skip_while(|(_, boards)| boards.iter().all(|board| !board.won()))
-        .next()
+        .find(|(_, boards)| !boards.iter().all(|board| !board.won()))
         .ok_or_else(|| anyhow!("No winning state!"))?;
 
     let Board(board) = boards.into_iter().find(|board| board.won()).unwrap();
-    Ok(board.into_iter().filter_map(ident).sum::<u64>() * num)
+    Ok(board.into_iter().flatten().sum::<u64>() * num)
 }
 
 fn part2(data: &Input) -> Result<u64> {
@@ -128,7 +127,7 @@ fn part2(data: &Input) -> Result<u64> {
         .last()
         .ok_or_else(|| anyhow!("No winner"))?;
 
-    Ok(board.into_iter().filter_map(ident).sum::<u64>() * num)
+    Ok(board.into_iter().flatten().sum::<u64>() * num)
 }
 
 fn main() -> Result<()> {

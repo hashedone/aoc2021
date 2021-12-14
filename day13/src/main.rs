@@ -19,7 +19,7 @@ fn input(data: impl BufRead) -> Input {
     let mut lines = data.lines();
     let mut points = vec![];
 
-    while let Some(line) = lines.next() {
+    for line in &mut lines {
         let line = line.unwrap();
         if line.is_empty() {
             break;

@@ -46,7 +46,7 @@ fn step(mut data: [u8; 100]) -> ([u8; 100], usize) {
         *cell += 1;
     }
 
-    while data.iter().find(|cell| **cell == 10).is_some() {
+    while data.iter().any(|cell| *cell == 10) {
         for idx in 0..100 {
             if data[idx] == 10 {
                 data[idx] = 11;
@@ -92,6 +92,6 @@ fn part2(mut data: [u8; 100]) -> usize {
 fn main() {
     let data = input(stdin().lock());
 
-    println!("{}", part1(data.clone()));
+    println!("{}", part1(data));
     println!("{}", part2(data));
 }

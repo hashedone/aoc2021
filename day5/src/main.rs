@@ -81,7 +81,7 @@ fn part2(data: &[Line]) -> usize {
         .count()
 }
 
-fn parser<'a>(input: &'a str) -> IResult<&'a str, Line> {
+fn parser(input: &str) -> IResult<&str, Line> {
     let (input, x1) = pu64(input)?;
     let (input, _) = tag(",")(input)?;
     let (input, y1) = pu64(input)?;
