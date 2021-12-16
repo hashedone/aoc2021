@@ -9,7 +9,7 @@ impl Heightmap {
     fn neighbors(&self, idx: usize) -> Vec<usize> {
         [
             Some(idx.wrapping_sub(self.width)).filter(|_| idx >= self.width),
-            Some(idx + self.width).filter(|_| idx < self.map.len() - self.width - 1),
+            Some(idx + self.width).filter(|_| idx < self.map.len() - self.width),
             Some(idx.wrapping_sub(1)).filter(|_| idx % self.width > 0),
             Some(idx + 1).filter(|_| (idx + 1) % self.width > 0),
         ]
